@@ -1,1 +1,1 @@
-web: gunicorn crud.wsgi
+web: gunicorn speedsite.wsgi
