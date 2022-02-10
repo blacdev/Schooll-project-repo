@@ -12,7 +12,10 @@ class OffenderView(APIView):
 
   def get(self, request):
     queryset = OffenderProfile.objects.all()
-    serializer = OffenderProfileSerializer(queryset, many=True)
+    # pass context with request object to serializer to
+    # make request object accessable from serializer class
+    serializer = OffenderProfileSerializer(
+      queryset, many=True, context={"request": request})
     return Response(serializer.data)
 
 
