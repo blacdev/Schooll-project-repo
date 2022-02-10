@@ -20,7 +20,8 @@ class OffenderView(APIView):
 
 
   def post(self, request, *args, **kwargs):
-    file_serializer = OffenderProfileSerializer(data=request.data)
+    file_serializer = OffenderProfileSerializer(
+      data=request.data, context={"request": request})
     if file_serializer.is_valid():
       file_serializer.save()
       return Response(file_serializer.data, status=status.HTTP_201_CREATED)
