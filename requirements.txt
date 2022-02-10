@@ -2,8 +2,8 @@ asgiref==3.4.1
 certifi==2021.10.8
 charset-normalizer==2.0.10
 dj-database-url==0.5.0
-Django==3.2.5
 django-cors-headers==3.11.0
+Django==3.2.11
 django-heroku==0.3.1
 django-versatileimagefield==2.2
 djangorestframework==3.13.1

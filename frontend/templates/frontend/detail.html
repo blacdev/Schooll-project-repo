@@ -1,0 +1,30 @@
+{% extends "frontend/base.html" %}
+
+{% block content %}
+<div class="card text-white bg-dark" style="width: 40rem">
+    <h1 class="card-header border-white text-center">SPEEDSITE</h1>
+    <img src="{{ offender.image.url }}" class="card-image-top" />
+    <div class="card text-dark bg-white">
+        <h3 class="card-header text-center">Offender Details</h3>
+        <div class="card-body">
+            <table class="table table-bordered table-responsive">
+                <tr>
+                    <td>ID</td>
+                    <td class="text-center">{{ offender.id }}</td>
+                </tr>
+                <tr>
+                    <td>SPEED</td>
+                    <td class="text-center">{{ offender.speed }}</td>
+                </tr>
+                <tr>
+                    <td>IS SPEEDING</td>
+                    <td class="text-center {{ offense_color }}">{{ offender.is_speeding }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer">
+        <p class="text-center">Oluwaseye Owoborode's School Project Frontend</p>
+    </div>
+</div>
+{% endblock content %}

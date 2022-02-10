@@ -12,12 +12,16 @@ class OffenderView(APIView):
 
   def get(self, request):
     queryset = OffenderProfile.objects.all()
-    serializer = OffenderProfileSerializer(queryset, many=True)
+    # pass context with request object to serializer to
+    # make request object accessable from serializer class
+    serializer = OffenderProfileSerializer(
+      queryset, many=True, context={"request": request})
     return Response(serializer.data)
 
 
   def post(self, request, *args, **kwargs):
-    file_serializer = OffenderProfileSerializer(data=request.data)
+    file_serializer = OffenderProfileSerializer(
+      data=request.data, context={"request": request})
     if file_serializer.is_valid():
       file_serializer.save()
       return Response(file_serializer.data, status=status.HTTP_201_CREATED)

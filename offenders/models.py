@@ -1,6 +1,8 @@
 from django.db import models
 import uuid
 
+from django.urls import reverse
+
 # Create your models here.
 
 
@@ -16,3 +18,6 @@ class OffenderProfile(models.Model):
     
     def __str__(self):
         return (self.id)
+    
+    def get_absolute_url(self):
+        return reverse("offender-detail", args=[str(self.id)])
